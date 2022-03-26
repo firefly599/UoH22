@@ -1,0 +1,13 @@
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\bin\Debug\netcoreapp3.1\Question1.exe
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\bin\Debug\netcoreapp3.1\Question1.deps.json
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\bin\Debug\netcoreapp3.1\Question1.runtimeconfig.json
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\bin\Debug\netcoreapp3.1\Question1.runtimeconfig.dev.json
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\bin\Debug\netcoreapp3.1\Question1.dll
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\bin\Debug\netcoreapp3.1\Question1.pdb
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\obj\Debug\netcoreapp3.1\Question1.csprojAssemblyReference.cache
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\obj\Debug\netcoreapp3.1\Question1.AssemblyInfoInputs.cache
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\obj\Debug\netcoreapp3.1\Question1.AssemblyInfo.cs
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\obj\Debug\netcoreapp3.1\Question1.csproj.CoreCompileInputs.cache
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\obj\Debug\netcoreapp3.1\Question1.dll
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\obj\Debug\netcoreapp3.1\Question1.pdb
+\\adir.hull.ac.uk\home\691\691613\1. Work\Kattis\Test\Question1\obj\Debug\netcoreapp3.1\Question1.genruntimeconfig.cache

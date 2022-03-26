@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\UoH22\\Test\\Question1\\Question1.csproj",
+      "projectUniqueName": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\Kattis\\Test\\Question1\\Question1.csproj",
       "projectName": "Question1",
-      "projectPath": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\UoH22\\Test\\Question1\\Question1.csproj",
+      "projectPath": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\Kattis\\Test\\Question1\\Question1.csproj",
       "packagesPath": "C:\\Users\\691613\\.nuget\\packages\\",
-      "outputPath": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\UoH22\\Test\\Question1\\obj\\",
+      "outputPath": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\Kattis\\Test\\Question1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
