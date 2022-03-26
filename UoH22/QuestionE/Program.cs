@@ -44,21 +44,30 @@ namespace QuestionE
             {
                 bool person1Watched = false;
                 bool person2Watched = false;
-                if (filmDays1.filmDays.Contains(day) && filmDays2.filmDays.Contains(day))
+
+                bool person1Contains = filmDays1.filmDays.Contains(day);
+                bool person2Contains = filmDays2.filmDays.Contains(day);
+
+
+
+                if (person1Contains && person2Contains)
                 {
                     totalFilmsThatCanBeWatched++;
                     person1Watched = true;
                     person2Watched = true;
+                    filmDays1.likedFilms -= 1;
+                    filmDays2.likedFilms -= 1;
+
                 }
 
-                else if (filmDays1.filmDays.Contains(day) && person1cooldown == false && filmDays1.likedFilms != 0)
+                else if (person1Contains && person1cooldown == false && filmDays1.likedFilms != 0)
                 {
                     totalFilmsThatCanBeWatched++;
                     filmDays1.likedFilms -= 1;
                     person1Watched = true;
                 }
 
-                else if (filmDays2.filmDays.Contains(day) && person2cooldown == false && filmDays2.likedFilms != 0)
+                else if (person2Contains && person2cooldown == false && filmDays2.likedFilms != 0)
                 {
                     totalFilmsThatCanBeWatched++;
                     filmDays2.likedFilms -= 1;
