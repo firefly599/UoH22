@@ -5,34 +5,52 @@ namespace QuestionE
 {
     class Program
     {
-        private static List<int> ReadFilms()
+        private static Film ReadFilms()
         {
-            List<int> films = new List<int>();
+
+            List<int> filmDays = new List<int>();
             string[] numbers = Console.ReadLine().Split(" ");
-            for(int i = 0; i < int.Parse(numbers[0]); i++)
+            int likedNumber = int.Parse(numbers[0]);
+            for (int i = 0; i < int.Parse(numbers[0]); i++)
             {
-                films.Add(int.Parse(numbers[i+1]));
+                filmDays.Add(int.Parse(numbers[i + 1]));
             }
 
-            return films;
+            return new Film(filmDays, likedNumber);
         }
 
         static void Main(string[] args)
         {
-            List<int> filmDays1 = ReadFilms();
-            List<int> filmDays2 = ReadFilms();
+            Film filmDays1 = ReadFilms();
+            Film filmDays2 = ReadFilms();
 
-            filmDays1.Sort();
-            filmDays2.Sort();
+            List<int> allDays = new List<int>();
 
-            int totalFilms = 0;
-            int lastWatchedFilm = -1;
-            bool person1LikedLast = false;
-            bool person2LikedLast = true;
-            for(int i = 0; i < Math.Max(filmDays1.Count, filmDays2.Count); i++)
+            allDays = filmDays1.filmDays;
+            foreach (int day in filmDays2.filmDays)
             {
-
+                if (!allDays.Contains(day))
+                {
+                    allDays.Add(day);
+                }
             }
+
+            allDays.Sort();
+
         }
     }
+
+    class Film
+    {
+        public List<int> filmDays = new List<int>();
+        public int likedFilms;
+
+        public Film(List<int> days, int likedFilms)
+        {
+            this.likedFilms = likedFilms;
+            this.filmDays = days;
+        }
+
+    }
+
 }
