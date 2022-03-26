@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\UoH22\\Test\\Test\\Test.csproj": {}
+    "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\Kattis\\Test\\Test\\Test.csproj": {}
   },
   "projects": {
-    "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\UoH22\\Test\\Test\\Test.csproj": {
+    "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\Kattis\\Test\\Test\\Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\UoH22\\Test\\Test\\Test.csproj",
+        "projectUniqueName": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\Kattis\\Test\\Test\\Test.csproj",
         "projectName": "Test",
-        "projectPath": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\UoH22\\Test\\Test\\Test.csproj",
+        "projectPath": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\Kattis\\Test\\Test\\Test.csproj",
         "packagesPath": "C:\\Users\\691613\\.nuget\\packages\\",
-        "outputPath": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\UoH22\\Test\\Test\\obj\\",
+        "outputPath": "\\\\adir.hull.ac.uk\\home\\691\\691613\\1. Work\\Kattis\\Test\\Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
