@@ -5,37 +5,31 @@ namespace QuestionE
 {
     class Program
     {
+        public static List<int> allDays = new List<int>();
         private static Film ReadFilms()
         {
-
-            List<int> filmDays = new List<int>();
+            Dictionary<int, int> filmDaysDic = new Dictionary<int, int>();
             string[] numbers = Console.ReadLine().Split(" ");
             int likedNumber = int.Parse(numbers[0]);
+
+
             for (int i = 0; i < int.Parse(numbers[0]); i++)
             {
-                filmDays.Add(int.Parse(numbers[i + 1]));
-            }
-
-            return new Film(filmDays, likedNumber);
-        }
-
-        static void Main(string[] args)
-        {
-            Film filmDays1 = ReadFilms();
-            Film filmDays2 = ReadFilms();
-
-            List<int> allDays = new List<int>();
-
-            allDays = new List<int>(filmDays1.filmDays);
-            foreach (int day in filmDays2.filmDays)
-            {
+                int day = int.Parse(numbers[i + 1]);
+                filmDaysDic.Add(day, day);
                 if (!allDays.Contains(day))
                 {
                     allDays.Add(day);
                 }
             }
 
-            allDays.Sort();
+            return new Film(filmDaysDic, likedNumber);
+        }
+
+        static void Main(string[] args)
+        {
+            Film filmDays1 = ReadFilms();
+            Film filmDays2 = ReadFilms();
 
             int totalFilmsThatCanBeWatched = 0;
             bool person1cooldown = false;
@@ -45,8 +39,8 @@ namespace QuestionE
                 bool person1Watched = false;
                 bool person2Watched = false;
 
-                bool person1Contains = filmDays1.filmDays.Contains(day);
-                bool person2Contains = filmDays2.filmDays.Contains(day);
+                bool person1Contains = filmDays1.filmDays.ContainsKey(day);
+                bool person2Contains = filmDays1.filmDays.ContainsKey(day);
 
 
 
@@ -98,10 +92,10 @@ namespace QuestionE
 
     class Film
     {
-        public List<int> filmDays = new List<int>();
+        public Dictionary<int, int> filmDays = new Dictionary<int, int>();
         public int likedFilms;
 
-        public Film(List<int> days, int likedFilms)
+        public Film(Dictionary<int, int> days, int likedFilms)
         {
             this.likedFilms = likedFilms;
             this.filmDays = days;
