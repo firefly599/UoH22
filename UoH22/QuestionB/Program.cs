@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Question2
 {
@@ -8,10 +9,81 @@ namespace Question2
         private static int gridRows;
         private static int gridColumns;
 
-        private static bool CheckGridSlot(int x, int y)
+        private static int GetGridSlot(int x, int y)
         {
-            if (x < 0 || x >= gridColumns || y < 0 || y >= gridRows) return false;
-            return grid[y, x] == 1;
+            if (x < 0 || x >= gridColumns || y < 0 || y >= gridRows) return -1;
+            return grid[y, x];
+        }
+
+        struct coords
+        {
+            public int x;
+            public int y;
+        }
+
+        private static int travelStartX;
+        private static int travelStartY;
+        private static List<coords> traveledCoords;
+
+        private static bool TravelDirection(int x, int y, int oldDirection)
+        {
+            traveledCoords.Add(new coords() {
+                x = x,
+                y = y
+            });
+
+            if (x == travelStartX && y == travelStartY && oldDirection != -1) return true;
+
+            int left = GetGridSlot(x - 1, y); // 0
+            int top = GetGridSlot(x, y - 1); // 1
+            int right = GetGridSlot(x + 1, y); // 2
+            int bottom = GetGridSlot(x, y + 1); // 3
+
+            if (left == -1 || top == -1 || right == -1 || bottom == -1) return false;
+
+            int newDirection = -1;
+            if(top == 0 && oldDirection != 1)
+            {
+                newDirection = 1;
+            }
+            else if (right == 0 && oldDirection != 2)
+            {
+                newDirection = 2;
+            }            
+            else if (bottom == 0 && oldDirection != 3)
+            {
+                newDirection = 3;
+            }            
+            else if (left == 0 && oldDirection != 0)
+            {
+                newDirection = 0;
+            }
+
+            if (newDirection == -1) return false;
+
+            int newX = 0;
+            int newY = 0;
+            switch(newDirection)
+            {
+                case 0:
+                    newX = x - 1;
+                    newY = y;
+                    break;                
+                case 1:
+                    newX = x;
+                    newY = y - 1;
+                    break;                
+                case 2:
+                    newX = x + 1;
+                    newY = y;
+                    break;                
+                case 3:
+                    newX = x;
+                    newY = y + 1;
+                    break;
+            }
+
+            return TravelDirection(newX, newY, newDirection);
         }
 
         static void Main(string[] args)
@@ -40,7 +112,21 @@ namespace Question2
             }*/
 
             // Checking for holes
+            for (int row = 0; row < gridRows; row++)
+            {
+                for (int col = 0; col < gridColumns; col++)
+                {
+                    if (grid[row, col] != 0) continue;
 
+                    traveledCoords = new List<coords>();
+                    travelStartX = col;
+                    travelStartY = row;
+
+                    if (!TravelDirection(col, row, -1)) continue;
+
+                    Console.WriteLine(col + "," + row);
+                }
+            }
 
             // Checking coast
             int[,] gridTest = new int[5, 6];
@@ -53,16 +139,16 @@ namespace Question2
                     if (grid[row, col] == 0) continue;
 
                     int coastToAdd = 4;
-                    if (CheckGridSlot(col - 1, row))
+                    if (GetGridSlot(col - 1, row) == 1)
                         coastToAdd -= 1;
 
-                    if (CheckGridSlot(col + 1, row))
+                    if (GetGridSlot(col + 1, row) == 1)
                         coastToAdd -= 1;
 
-                    if (CheckGridSlot(col, row - 1))
+                    if (GetGridSlot(col, row - 1) == 1)
                         coastToAdd -= 1;
 
-                    if (CheckGridSlot(col, row + 1))
+                    if (GetGridSlot(col, row + 1) == 1)
                         coastToAdd -= 1;
 
                     gridTest[row, col] = coastToAdd;
