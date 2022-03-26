@@ -39,6 +39,12 @@ namespace Question2
                 }
             }*/
 
+            // Checking for holes
+
+
+            // Checking coast
+            int[,] gridTest = new int[5, 6];
+
             int coastLine = 0;
             for (int row = 0; row < gridRows; row++)
             {
@@ -47,19 +53,19 @@ namespace Question2
                     if (grid[row, col] == 0) continue;
 
                     int coastToAdd = 4;
-                    if (CheckGridSlot(col - 1, row - 1))
-                        coastToAdd -= 1;
-
                     if (CheckGridSlot(col - 1, row))
-                        coastToAdd -= 1;
-
-                    if (CheckGridSlot(col + 1, row + 1))
                         coastToAdd -= 1;
 
                     if (CheckGridSlot(col + 1, row))
                         coastToAdd -= 1;
 
-                    grid[row, col] = coastToAdd;
+                    if (CheckGridSlot(col, row - 1))
+                        coastToAdd -= 1;
+
+                    if (CheckGridSlot(col, row + 1))
+                        coastToAdd -= 1;
+
+                    gridTest[row, col] = coastToAdd;
 
                     coastLine += coastToAdd;
                 }
@@ -69,7 +75,7 @@ namespace Question2
             {
                 for (int col = 0; col < gridColumns; col++)
                 {
-                    Console.Write(grid[row, col] + " ");
+                    Console.Write(gridTest[row, col] + " ");
                 }
 
                 Console.WriteLine();
