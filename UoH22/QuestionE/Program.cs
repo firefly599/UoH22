@@ -26,7 +26,7 @@ namespace QuestionE
 
             List<int> allDays = new List<int>();
 
-            allDays = filmDays1.filmDays;
+            allDays = new List<int>(filmDays1.filmDays);
             foreach (int day in filmDays2.filmDays)
             {
                 if (!allDays.Contains(day))
@@ -37,6 +37,53 @@ namespace QuestionE
 
             allDays.Sort();
 
+            int totalFilmsThatCanBeWatched = 0;
+            bool person1cooldown = false;
+            bool person2cooldown = false;
+            foreach (int day in allDays)
+            {
+                bool person1Watched = false;
+                bool person2Watched = false;
+                if (filmDays1.filmDays.Contains(day) && filmDays2.filmDays.Contains(day))
+                {
+                    totalFilmsThatCanBeWatched++;
+                    person1Watched = true;
+                    person2Watched = true;
+                }
+
+                else if (filmDays1.filmDays.Contains(day) && person1cooldown == false && filmDays1.likedFilms != 0)
+                {
+                    totalFilmsThatCanBeWatched++;
+                    filmDays1.likedFilms -= 1;
+                    person1Watched = true;
+                }
+
+                else if (filmDays2.filmDays.Contains(day) && person2cooldown == false && filmDays2.likedFilms != 0)
+                {
+                    totalFilmsThatCanBeWatched++;
+                    filmDays2.likedFilms -= 1;
+                    person2Watched = true;
+                }
+
+                if (person1Watched && person2Watched)
+                {
+                    person1cooldown = false;
+                    person2cooldown = false;
+                }
+                else if(person1Watched == true)
+                {
+                    person1cooldown = true;
+                    person2cooldown = false;
+                }
+                else if(person2Watched == true)
+                {
+                    person1cooldown = false;
+                    person2cooldown = true;
+                }
+
+            }
+
+            Console.WriteLine(totalFilmsThatCanBeWatched);
         }
     }
 
